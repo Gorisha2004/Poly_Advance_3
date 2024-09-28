@@ -32,6 +32,26 @@ This will generate the **out** file with circuit intermediaries and geneate the 
 
 ### Prove and Deploy
 `npx hardhat run scripts/deploy.ts`
+This script does 4 things<br/ >
+
+1. Deploys the MultiplierVerifier.sol contract<br/ >
+2. Generates a proof from circuit intermediaries with generateProof()<br/ >
+3. Generates calldata with generateCallData()<br/ >
+4. Calls verifyProof() on the verifier contract with calldata<br/ >
+With two commands you can compile a ZKP, generate a proof, deploy a verifier, and verify the proof<br />
+
+## Configuration
+### Directory Structure
+**circuits**
+
+```
+├── multiplier
+│   ├── circuit.circom
+│   ├── input.json
+│   └── out
+│       ├── circuit.wasm
+│       ├── multiplier.r1cs
+│       ├── multiplier.vkey
 │       └── multiplier.zkey
 ├── new-circuit
 └── powersOfTau28_hez_final_12.ptau
